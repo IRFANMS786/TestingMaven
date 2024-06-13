@@ -6,8 +6,8 @@ import org.testng.annotations.Test;
 public class Login {
 	@Test
 	public static void LoginToApplication() throws Exception {
-		BaseClass.launchDriver();
-				
+		BaseClass.launchDriver("chrome_incognito");
+
 		String url = "https://www.amazon.in/";
 
 		System.out.println("url:" + url);

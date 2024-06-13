@@ -7,6 +7,19 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 
 public class HomePage {
+	public static void clickonsearchicon() throws Exception {
+
+		Properties prop = BaseClass.FISProb();
+		System.out.println("Search Product -------------");
+
+		BaseClass.driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(15));
+
+		WebElement searchproduct;
+		searchproduct = BaseClass.driver.findElement(By.xpath(prop.getProperty("Home_SearchIcon")));
+		searchproduct.click();
+
+	}
+
 	public static void clickSeachProuct() throws Exception {
 
 		Properties prop = BaseClass.FISProb();
@@ -23,26 +36,13 @@ public class HomePage {
 	public static void enterProduct(String product) throws Exception {
 
 		Properties prop = BaseClass.FISProb();
-		System.out.println("Search Product -------------");
+		System.out.println("Enter Product -------------");
 
 		BaseClass.driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(15));
 
 		WebElement searchproduct;
 		searchproduct = BaseClass.driver.findElement(By.xpath(prop.getProperty("Home_SearchProuct")));
 		searchproduct.sendKeys(product);
-
-	}
-
-	public static void clickonsearchicon() throws Exception {
-
-		Properties prop = BaseClass.FISProb();
-		System.out.println("Search Product -------------");
-
-		BaseClass.driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(15));
-
-		WebElement searchproduct;
-		searchproduct = BaseClass.driver.findElement(By.xpath(prop.getProperty("Home_SearchIcon")));
-		searchproduct.click();
 
 	}
 

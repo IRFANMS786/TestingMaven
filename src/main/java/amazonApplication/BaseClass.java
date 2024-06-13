@@ -6,17 +6,34 @@ import java.util.Properties;
 
 import org.apache.commons.lang3.StringUtils;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.edge.EdgeDriver;
 
 public class BaseClass {
 
 	public static final String XPATH = System.getProperty("user.dir") + "\\resources" + "\\xpath.properties";
+	public static final String driverpath = "C:\\Selenium";
 	public static WebDriver driver;
+	static BrowserFactory browserFactory = new BrowserFactory();
 
-	public static void launchDriver() {
-		System.setProperty("webdriver.chrome.driver",
-				"C:\\Users\\ikhaisarbash\\OneDrive - DXC Production\\Documents\\edgedriver_win64\\GitHub\\msedgedriver.exe");
-		driver = new EdgeDriver();
+	static Properties properties = new Properties();
+
+	public static Properties FISProb() throws IOException, InterruptedException {
+		FileInputStream file = new FileInputStream(XPATH);
+		Properties prop = new Properties();
+		Thread.sleep(5000);
+		prop.load(file);
+
+		return (prop);
+	}
+
+	public static void launchDriver(String browser) {
+		DriverControl.getInstance().setDriver(browserFactory.createInstance(browser));
+
+		driver = DriverControl.getInstance().getDriver();
+		driver.manage().window().maximize();
+
+		// driver.manage().window().setSize(new Dimension(1552, 840));
+		System.out.println("Window Size:" + BaseClass.driver.manage().window().getSize());
+		// driver.get(url);
 
 	}
 
@@ -24,19 +41,6 @@ public class BaseClass {
 		driver.navigate().to(url);
 
 	}
-
-	public static void windowsize() {
-		// Ensure the driver is initialized
-		if (driver == null) {
-			throw new IllegalStateException("Driver is not initialized. Please call launchDriver() first.");
-		}
-
-		driver.manage().window().maximize();
-
-		System.out.println("Window Size:" + driver.manage().window().getSize());
-	}
-
-	static Properties properties = new Properties();
 
 	public static String prop(String key) throws Exception {
 		FileInputStream file = new FileInputStream(XPATH);
@@ -48,13 +52,15 @@ public class BaseClass {
 		return value;
 	}
 
-	public static Properties FISProb() throws IOException, InterruptedException {
-		FileInputStream file = new FileInputStream(XPATH);
-		Properties prop = new Properties();
-		Thread.sleep(5000);
-		prop.load(file);
+	public static void windowsize() {
+		// Ensure the driver is initialized
+		if (driver == null) {
+			throw new IllegalStateException("Driver is not initialized. Please call launchDriver() first.");
+		}
 
-		return (prop);
+		driver.manage().window().maximize();
+
+		System.out.println("Window Size:" + driver.manage().window().getSize());
 	}
 
 }
