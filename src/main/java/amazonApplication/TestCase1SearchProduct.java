@@ -1,21 +1,16 @@
 package amazonApplication;
 
-import org.openqa.selenium.By;
 import org.testng.annotations.Test;
 
 public class TestCase1SearchProduct {
 
-	@Test(priority = 1, groups = "CreateTestData")
+	@Test(priority = 1, groups = "SearchProduct")
 	public static void testCase1SearchProduct() throws Exception {
 		Login.LoginToApplication();
 		String product = "realme 12 pro plus 5g";
-		BaseClass.driver.findElement(By.xpath(BaseClass.prop("Home_SearchProuct"))).sendKeys(product);
-		BaseClass.driver.findElement(By.xpath(BaseClass.prop("Home_Search"))).click();
-		
-		
-		
-		
-		
+		HomePage.clickSeachProuct();
+		HomePage.enterProduct(product);
+		HomePage.clickonsearchicon();
 
 	}
 
