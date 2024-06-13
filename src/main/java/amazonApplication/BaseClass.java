@@ -1,9 +1,15 @@
-package seleniumBasics;
+package amazonApplication;
 
+import java.io.FileInputStream;
+import java.util.Properties;
+
+import org.apache.commons.lang3.StringUtils;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.edge.EdgeDriver;
 
 public class BaseClass {
+	
+	public static final String XPATH = System.getProperty("user.dir") + "\\resources" + "\\xpath.properties";
 	public static WebDriver driver;
 
 	public static void launchDriver() {
@@ -26,6 +32,18 @@ public class BaseClass {
 		driver.manage().window().maximize();
 
 		System.out.println("Window Size:" + driver.manage().window().getSize());
+	}
+	
+	static Properties properties = new Properties();
+
+	public static String prop(String key) throws Exception {
+		FileInputStream file = new FileInputStream(XPATH);
+		properties.load(file);
+		String value = properties.get(key).toString();
+		if (StringUtils.isEmpty(value)) {
+			throw new Exception("Value is not specified for key" + key + "in properties  file");
+		}
+		return value;
 	}
 	
 	
