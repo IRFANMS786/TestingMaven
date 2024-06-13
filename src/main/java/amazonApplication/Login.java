@@ -3,24 +3,22 @@ package amazonApplication;
 import org.openqa.selenium.By;
 import org.testng.annotations.Test;
 
-
 public class Login {
 	@Test
 	public static void LoginToApplication() throws Exception {
-
 		BaseClass.launchDriver();
-		BaseClass.launchWebsite("https://www.amazon.in/");
-		BaseClass.windowsize();
+				
 		String url = "https://www.amazon.in/";
-		url = url.trim();
+
 		System.out.println("url:" + url);
 
 		String userName = "Irfanms1997@gmail.com";
-		userName = userName.trim();
+
 		System.out.println("UserId:" + userName);
 
 		String password = "Iktfa@007";
-		password = password.trim();
+
+		System.out.println("password:" + password);
 
 		BaseClass.driver.get(url);
 		// To maximize the browser
