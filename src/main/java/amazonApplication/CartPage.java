@@ -1,7 +1,5 @@
 package amazonApplication;
 
-import java.io.IOException;
-import java.time.Duration;
 import java.util.Properties;
 
 import org.openqa.selenium.By;
@@ -10,19 +8,6 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class CartPage {
-
-	public static void verifyCartisempty() throws IOException, InterruptedException {
-		Properties prop = BaseClass.FISProb();
-		System.out.println("Click Cart icon -------------");
-
-		BaseClass.driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(15));
-
-		WebElement searchproduct;
-		searchproduct = BaseClass.driver.findElement(By.xpath(prop.getProperty("CartIcon")));
-		searchproduct.click();
-		System.out.println("The Cart Page is Displayed");
-
-	}
 
 	public static void checkContentIsDisplayedForEmptyCart() throws Exception {
 		Properties prop = BaseClass.FISProb();

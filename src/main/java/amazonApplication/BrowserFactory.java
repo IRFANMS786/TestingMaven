@@ -10,6 +10,8 @@ import org.openqa.selenium.firefox.FirefoxOptions;
 import org.openqa.selenium.ie.InternetExplorerDriver;
 import org.openqa.selenium.ie.InternetExplorerOptions;
 
+import com.csc.qa.CommonCode_Infra.BaseClass;
+
 import io.github.bonigarcia.wdm.WebDriverManager;
 
 public class BrowserFactory {
@@ -21,23 +23,9 @@ public class BrowserFactory {
 		switch (browserName.toLowerCase()) {
  
 		case "chrome":
-			 // Hardcoded paths for debugging purposes
-	        String driverPath = "C:\\Selenium\\chromedriver\\chromedriver.exe";
-	        String chromeBinaryPath = "C:\\Selenium\\chrome\\chrome.exe";
-	        
-	        // Set the system property for ChromeDriver
-	        System.setProperty("webdriver.chrome.driver", driverPath);
-	        
-	        // Print paths for debugging
-	        System.out.println("Driver path: " + driverPath);
-	        System.out.println("Chrome binary path: " + chromeBinaryPath);
-	        
-	        // Add options
-	        options.addArguments("--remote-allow-origins=*");
-	        options.setBinary(chromeBinaryPath);
-	        
-	      
-	        
+			System.setProperty("webdriver.chrome.driver", BaseClass.driverpath+"\\chromedriver\\chromedriver.exe");
+			options.addArguments("--remote-allow-origins=*");
+			options.setBinary(BaseClass.driverpath+"\\chrome\\chrome.exe");
 			driver = new ChromeDriver(options);
 			break;
  
