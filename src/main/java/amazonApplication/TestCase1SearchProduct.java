@@ -12,6 +12,9 @@ public class TestCase1SearchProduct {
 		HomePage.clickSeachProuct();
 		HomePage.enterProduct(product);
 		HomePage.clickonsearchicon();
+		HomePage.clickCartIcon();
+		CartPage.checkContentIsDisplayedForEmptyCart();
+		
 
 	}
 

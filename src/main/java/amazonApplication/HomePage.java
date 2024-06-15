@@ -23,13 +23,15 @@ public class HomePage {
 	public static void clickSeachProuct() throws Exception {
 
 		Properties prop = BaseClass.FISProb();
-		System.out.println("click Navigate to Search Product -------------");
+		System.out.println("Navigate to Search Product -------------");
 
 		BaseClass.driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(15));
 
 		WebElement searchproduct;
 		searchproduct = BaseClass.driver.findElement(By.xpath(prop.getProperty("Home_SearchProuct")));
 		searchproduct.click();
+
+		System.out.println("Click on Search Icon  Clicked Successfully---------------------");
 
 	}
 
@@ -43,6 +45,22 @@ public class HomePage {
 		WebElement searchproduct;
 		searchproduct = BaseClass.driver.findElement(By.xpath(prop.getProperty("Home_SearchProuct")));
 		searchproduct.sendKeys(product);
+
+		System.out.println("Product Enter Successfully---------------------");
+
+	}
+
+	public static void clickCartIcon() throws Exception {
+
+		Properties prop = BaseClass.FISProb();
+		System.out.println("NavigateTo Cart Icon ---------------------");
+
+		BaseClass.driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(15));
+
+		WebElement searchproduct;
+		searchproduct = BaseClass.driver.findElement(By.xpath(prop.getProperty("Home_CartIcon")));
+		searchproduct.click();
+		System.out.println("Cart Page is Displayed  Successfully---------------------");
 
 	}
 

@@ -2,6 +2,7 @@ package amazonApplication;
 
 import java.io.FileInputStream;
 import java.io.IOException;
+import java.time.Duration;
 import java.util.Properties;
 
 import org.apache.commons.lang3.StringUtils;
@@ -11,6 +12,7 @@ public class BaseClass {
 
 	public static final String XPATH = System.getProperty("user.dir") + "\\resources" + "\\xpath.properties";
 	public static final String driverpath = "C:\\Selenium";
+	public static Duration elementWaitTime = Duration.ofSeconds(120);
 	public static WebDriver driver;
 	static BrowserFactory browserFactory = new BrowserFactory();
 

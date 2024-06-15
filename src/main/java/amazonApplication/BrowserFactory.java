@@ -21,9 +21,23 @@ public class BrowserFactory {
 		switch (browserName.toLowerCase()) {
  
 		case "chrome":
-			System.setProperty("webdriver.chrome.driver", BaseClass.driverpath+"\\chromedriver\\chromedriver.exe");
-			options.addArguments("--remote-allow-origins=*");
-			options.setBinary(BaseClass.driverpath+"\\chrome\\chrome.exe");
+			 // Hardcoded paths for debugging purposes
+	        String driverPath = "C:\\Selenium\\chromedriver\\chromedriver.exe";
+	        String chromeBinaryPath = "C:\\Selenium\\chrome\\chrome.exe";
+	        
+	        // Set the system property for ChromeDriver
+	        System.setProperty("webdriver.chrome.driver", driverPath);
+	        
+	        // Print paths for debugging
+	        System.out.println("Driver path: " + driverPath);
+	        System.out.println("Chrome binary path: " + chromeBinaryPath);
+	        
+	        // Add options
+	        options.addArguments("--remote-allow-origins=*");
+	        options.setBinary(chromeBinaryPath);
+	        
+	      
+	        
 			driver = new ChromeDriver(options);
 			break;
  
