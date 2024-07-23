@@ -1,13 +1,18 @@
 package programmingProblems;
 
+import java.util.Scanner;
+
 public class Reverseastring {
 
 	public static void main(String[] args) {
-		String originalStr = "ollo";
+		Scanner s1 = new Scanner(System.in);
+		String originalStr = s1.nextLine();
+//		String originalStr = "ollo";
 		String reversedStr = "";
 
 		for (int i = 0; i < originalStr.length(); i++) {
 			reversedStr = originalStr.charAt(i) + reversedStr;
+			System.out.println(reversedStr);
 		}
 
 		System.out.println("Reversed string: " + reversedStr);
