@@ -5,7 +5,6 @@ import java.sql.Statement;
 
 public class ConnectToDB {
 
-	// private static String dataFetched = "";
 	private static String driverName = "com.mysql.cj.jdbc.Driver";
 	private static String password = "root";
 	private static String url = "jdbc:mysql://localhost:3306/testdb";
