@@ -1,4 +1,4 @@
-package programmingProblems;
+package programming_Problems;
 
 public class printPartialString {
 	public static void main(String[] args) {
