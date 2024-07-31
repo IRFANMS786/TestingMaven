@@ -10,7 +10,7 @@ import org.openqa.selenium.firefox.FirefoxOptions;
 import org.openqa.selenium.ie.InternetExplorerDriver;
 import org.openqa.selenium.ie.InternetExplorerOptions;
 
-import com.csc.qa.CommonCode_Infra.BaseClass;
+
 
 import io.github.bonigarcia.wdm.WebDriverManager;
 
