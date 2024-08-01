@@ -13,7 +13,7 @@ public class Number3 {
 			}
 			
 			for ( j = 1; i <= i; i++) {
-				System.out.print(i);
+				System.out.println(i);
 			}
 			System.out.println();
 			
